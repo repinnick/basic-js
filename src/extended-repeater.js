@@ -11,9 +11,6 @@ module.exports = function repeater(str, options) {
     ? options.additionSeparator.toString()
     : "|";
 
-  if (str === null) {
-    str = "null";
-  }
   simpleString = str;
   for (i = 0; i < additionRepeatTimes; i++) {
     if (i + 1 === additionRepeatTimes) simpleString += addition;
