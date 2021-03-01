@@ -5,7 +5,7 @@ const HALF_LIFE_PERIOD = 5730;
 const T_PERIOD = 0.693;
 
 module.exports = function dateSample(sampleActivity) {
-  if (sampleActivity !== "string") {
+  if (typeof sampleActivity !== "string" || sampleActivity === NaN) {
     return false;
   }
 
@@ -15,7 +15,7 @@ module.exports = function dateSample(sampleActivity) {
     return false;
   }
 
-  k = T_PERIOD / HALF_LIFE_PERIOD;
-  date = Math.log(MODERN_ACTIVITY / sampleActivity) / k;
+  let k = T_PERIOD / HALF_LIFE_PERIOD;
+  let date = Math.log(MODERN_ACTIVITY / sampleActivity) / k;
   return Math.ceil(date);
 };
